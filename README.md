@@ -88,9 +88,9 @@ to everything that follows.
   []
   {:first-dispatch [:do-X]              ;; what event kicks things off ?
    :rules [                             ;; a set of rules describing the required flow
-     {:when :seen? :events :success-X  :dispatch [:do-Y]}
-     {:when :seen? :events :success-Y  :dispatch [:do-Z]}
-     {:when :seen? :events :success-Z  :halt? true}
+     {:when :seen? :event :success-X  :dispatch [:do-Y]}
+     {:when :seen? :event :success-Y  :dispatch [:do-Z]}
+     {:when :seen? :event :success-Z  :halt? true}
      {:when :seen-any-of? :events [:fail-X :fail-Y :fail-Z] :dispatch  [:app-failed-state] :halt? true}]})
 ```
 Try to read each `rule` line as an English sentence. When this event happens, dispatch another event. 
